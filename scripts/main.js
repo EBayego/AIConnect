@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const aiBox = document.querySelector('.ai-box');
+    const sections = document.querySelectorAll('section');
 
-    aiBox.addEventListener('mouseover', () => {
-        aiBox.style.backgroundColor = '#FF5722';
-    });
-
-    aiBox.addEventListener('mouseout', () => {
-        aiBox.style.backgroundColor = '#4CAF50';
+    sections.forEach((section, index) => {
+        section.style.animationDelay = `${index * 0.5}s`;
     });
 });
