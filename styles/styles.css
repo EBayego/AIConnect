@@ -9,9 +9,11 @@
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
-    background-color: #f4f4f4;
     line-height: 1.6;
     padding: 0 20px;
+    background: linear-gradient(135deg, #e0f7e8, #f9f9f9);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 /* Header */
@@ -23,16 +25,41 @@ body {
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.header-title {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: floating 6s ease-in-out infinite;
 }
 
-.header-subtitle {
-    font-size: 1.4em;
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: floating 8s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(20px) translateX(20px);
+    }
 }
 
 /* Secciones */
@@ -43,6 +70,7 @@ section {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 section:hover {
